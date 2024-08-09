@@ -3,7 +3,7 @@ services:
     entrypoint:
     - sleep
     - infinity
-    image: docker/dev-environments-default:stable-1
+    image: ortussolutions/commandbox:lucee5-ubi9-3.9.8
     init: true
     volumes:
     - type: bind
