@@ -1,4 +1,4 @@
-package migrationProxy
+package main
 
 import (
 	"errors"
@@ -27,5 +27,5 @@ func main() {
 	} else if err != nil {
 		fmt.Printf("error starting server: %s\n", err)
 		os.Exit(1)
-	<^>}
+	}
 }
