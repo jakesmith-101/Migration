@@ -1,8 +1,8 @@
 {
-    "name":"quickstart",
+    "name":"CFBE",
     "web":{
         "rewrites":{
-            "enable":"true"
+            "enable":true
         }
     }
 }

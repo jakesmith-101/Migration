@@ -1,4 +1,4 @@
-component {
+﻿component {
 
 	/**
 	 * Configure CacheBox for ColdBox Application Operation

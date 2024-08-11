@@ -1,34 +1,43 @@
 {
-    "name":"quickstart",
+    "name":"CFBE",
     "version":"1.0.0",
-    "author":"You",
     "location":"forgeboxStorage",
-    "slug":"quickstart",
+    "author":"You",
+    "slug":"cfbe",
     "createPackageDirectory":false,
     "type":"mvc",
-    "keywords":"",
-    "homepage":"",
-    "documentation":"",
+    "homepage":"https://github.com/coldbox-templates/rest",
+    "documentation":"https://github.com/coldbox-templates/rest",
     "repository":{
-        "type":"",
-        "url":""
+        "type":"git",
+        "url":"https://github.com/coldbox-templates/rest"
     },
-    "bugs":"",
-    "shortDescription":"",
+    "bugs":"https://github.com/coldbox-templates/rest/issues",
+    "shortDescription":"This template gives you the base for building RESTFul web services with ColdBox",
     "contributors":[],
     "ignore":[],
     "devDependencies":{
         "testbox":"^5.0.0",
+        "relax":"^4.1.0",
+        "route-visualizer":"*",
         "commandbox-dotenv":"*",
         "commandbox-cfconfig":"*",
         "commandbox-cfformat":"*"
     },
     "installPaths":{
         "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "relax":"modules/relax/",
+        "cbsecurity":"modules/cbsecurity/",
+        "route-visualizer":"modules/route-visualizer/",
+        "mementifier":"modules/mementifier/",
+        "cbvalidation":"modules/cbvalidation/"
     },
     "dependencies":{
-        "coldbox":"^7.0.0"
+        "coldbox":"^7.0.0",
+        "cbsecurity":"^3.0.0",
+        "mementifier":"^3.3.0",
+        "cbvalidation":"^4.1.0"
     },
     "scripts":{
         "postInstall":"pathExists .env || cp .env.example .env && package set ignore=[]",
@@ -39,8 +48,5 @@
         "docker:run":"!docker run -it -p 8080:8080 my-coldbox-app",
         "docker:bash":"!docker run -it my-coldbox-app /bin/bash",
         "docker:stack":"!docker compose -f build/docker-compose.yaml ${1}"
-    },
-    "testbox":{
-        "runner":"/tests/runner.cfm"
     }
 }

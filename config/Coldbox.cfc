@@ -1,4 +1,4 @@
-component {
+﻿component {
 
 	/**
 	 * Configure the ColdBox App For Production
@@ -23,7 +23,7 @@ component {
 			reinitKey                : "fwreinit",
 			handlersIndexAutoReload  : true,
 			// Implicit Events
-			defaultEvent             : "",
+			defaultEvent             : "Echo.index",
 			requestStartHandler      : "Main.onRequestStart",
 			requestEndHandler        : "",
 			applicationStartHandler  : "Main.onAppInit",
@@ -32,7 +32,7 @@ component {
 			sessionEndHandler        : "",
 			missingTemplateHandler   : "",
 			// Extension Points
-			applicationHelper        : "includes/helpers/ApplicationHelper.cfm",
+			applicationHelper        : "",
 			viewsHelper              : "",
 			modulesExternalLocation  : [],
 			viewsExternalLocation    : "",
@@ -42,7 +42,7 @@ component {
 			controllerDecorator      : "",
 			// Error/Exception Handling
 			invalidHTTPMethodHandler : "",
-			exceptionHandler         : "main.onException",
+			exceptionHandler         : "Echo.onError",
 			invalidEventHandler      : "",
 			customErrorTemplate      : "",
 			// Application Aspects
@@ -131,6 +131,8 @@ component {
 		 * --------------------------------------------------------------------------
 		 * Each module has it's own configuration structures, so make sure you follow
 		 * the module's instructions on settings.
+		 *
+		 * In ColdBox 7 you can store them in config/modules/{moduleName}.cfc
 		 *
 		 * Each key is the name of the module:
 		 *

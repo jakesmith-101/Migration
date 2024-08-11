@@ -27,10 +27,16 @@ component {
 			return "Ok!";
 		} );
 
-		// A nice RESTFul Route example
-		route( "/api/echo", function( event, rc, prc ){
-			return { "error" : false, "data" : "Welcome to my awesome API!" };
-		} );
+		// API Echo
+		get( "/api/echo", "Echo.index" );
+
+		// API Authentication Routes
+		post( "/api/login", "Auth.login" );
+		post( "/api/logout", "Auth.logout" );
+		post( "/api/register", "Auth.register" );
+
+		// API Secured Routes
+		get( "/api/whoami", "Echo.whoami" );
 
 		// @app_routes@
 
