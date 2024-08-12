@@ -54,8 +54,8 @@ component extends="coldbox.system.RestHandler" {
 	 *
 	 * @x        -route          (GET) /api/whoami
 	 * @security bearerAuth,ApiKeyAuth
-	 * @response -default ~echo/whoami/responses.json##200
-	 * @response -401     ~echo/whoami/responses.json##401
+	 * @response -default ~order/whoami/responses.json##200
+	 * @response -401     ~order/whoami/responses.json##401
 	 */
 	function whoami( event, rc, prc ) secured{
 		event.getResponse().setData( jwtAuth().getUser().getMemento() );

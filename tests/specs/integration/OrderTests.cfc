@@ -39,7 +39,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root" {
 
 			it( "can handle global exceptions", function(){
 				var event = execute(
-					event          = "echo.onError",
+					event          = "order.onError",
 					renderResults  = true,
 					eventArguments = {
 						exception : {
@@ -55,9 +55,9 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root" {
 				expect( response.getStatusCode() ).toBe( 500 );
 			} );
 
-			it( "can handle an echo", function(){
+			it( "can handle an order", function(){
 				prepareMock( getRequestContext() ).$( "getHTTPMethod", "GET" );
-				var event    = execute( route = "echo/index" );
+				var event    = execute( route = "order/index" );
 				var response = event.getPrivateValue( "response" );
 				expect( response.getError() ).toBeFalse();
 				expect( response.getData() ).toBe( "Welcome to my ColdBox RESTFul Service" );
@@ -65,7 +65,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root" {
 
 			it( "can handle missing actions", function(){
 				prepareMock( getRequestContext() ).$( "getHTTPMethod", "GET" );
-				var event    = execute( route = "echo/bogus" );
+				var event    = execute( route = "order/bogus" );
 				var response = event.getPrivateValue( "response" );
 				expect( response.getError() ).tobeTrue();
 				expect( response.getStatusCode() ).toBe( 404 );

@@ -57,11 +57,11 @@ component {
 				// Activate handler/action based annotation security
 				"handlerAnnotationSecurity"   : true,
 				// The global invalid authentication event or URI or URL to go if an invalid authentication occurs
-				"invalidAuthenticationEvent"  : "echo.onAuthenticationFailure",
+				"invalidAuthenticationEvent"  : "order.onAuthenticationFailure",
 				// Default Auhtentication Action: override or redirect when a user has not logged in
 				"defaultAuthenticationAction" : "override",
 				// The global invalid authorization event or URI or URL to go if an invalid authorization occurs
-				"invalidAuthorizationEvent"   : "echo.onAuthorizationFailure",
+				"invalidAuthorizationEvent"   : "order.onAuthorizationFailure",
 				// Default Authorization Action: override or redirect when a user does not have enough permissions to access something
 				"defaultAuthorizationAction"  : "override",
 				// Firewall database event logs.
