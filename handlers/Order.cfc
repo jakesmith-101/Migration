@@ -12,16 +12,40 @@ component extends="coldbox.system.RestHandler" {
 	this.aroundHandler_except = "";
 
 	// REST Allowed HTTP Methods Ex: this.allowedMethods = {delete='POST,DELETE',index='GET'}
-	this.allowedMethods = {};
+	this.allowedMethods = {
+		index='GET',
+		delete='POST,DELETE',
+		create='POST'
+	};
 
 	/**
-	 * Say Hello
+	 * get all orders
 	 *
-	 * @x        -route          (GET) /api/echo
-	 * @response -default ~echo/index/responses.json##200
+	 * @x        -route          (GET) /api/order
+	 * @response -default ~order/index/responses.json##200
 	 */
 	function index( event, rc, prc ){
-		event.getResponse().setData( "Welcome to my ColdBox RESTFul Service" );
+		event.getResponse().setData( "Welcome to my orders." );
+	}
+
+	/**
+	 * delete specified order
+	 *
+	 * @x        -route          (POST,DELETE) /api/deleteOrder
+	 * @response -default ~order/delete/responses.json##200
+	 */
+	function delete( event, rc, prc ) {
+
+	}
+
+	/**
+	 * create an order
+	 *
+	 * @x        -route          (POST) /api/createOrder
+	 * @response -default ~order/create/responses.json##200
+	 */
+	function create( event, rc, prc ) {
+
 	}
 
 
