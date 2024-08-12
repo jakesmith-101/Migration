@@ -17,25 +17,25 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "This is the proxy!\n")
 }
 func getorders(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /order request\n")
+	fmt.Printf("got /order/ request\n")
 	io.WriteString(w, "Hello, HTTP!\n")
 }
 func createorder(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /order request\n")
+	fmt.Printf("got /order/create request\n")
 	io.WriteString(w, "Hello, HTTP!\n")
 }
 func deleteorder(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /order request\n")
+	fmt.Printf("got /order/delete request\n")
 	io.WriteString(w, "Hello, HTTP!\n")
 }
 func purchaseorder(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /order request\n")
+	fmt.Printf("got /order/purchase request\n")
 	io.WriteString(w, "Hello, HTTP!\n")
 }
 
 func main() {
 	http.HandleFunc("/", getRoot)
-	http.HandleFunc("/order", getorders)
+	http.HandleFunc("/order/", getorders)
 	http.HandleFunc("/order/create", createorder)
 	http.HandleFunc("/order/delete", deleteorder)
 	http.HandleFunc("/order/purchase", purchaseorder)
