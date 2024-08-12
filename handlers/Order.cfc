@@ -31,7 +31,7 @@ component extends="coldbox.system.RestHandler" {
 	/**
 	 * delete specified order
 	 *
-	 * @x        -route          (POST,DELETE) /api/deleteOrder
+	 * @x        -route          (POST,DELETE) /api/order/delete
 	 * @response -default ~order/delete/responses.json##200
 	 */
 	function delete( event, rc, prc ) {
@@ -41,11 +41,21 @@ component extends="coldbox.system.RestHandler" {
 	/**
 	 * create an order
 	 *
-	 * @x        -route          (POST) /api/createOrder
+	 * @x        -route          (POST) /api/order/create
 	 * @response -default ~order/create/responses.json##200
 	 */
 	function create( event, rc, prc ) {
 
+	}
+
+	/**
+	 * complete purchase
+	 *
+	 * @x        -route            (POST) /api/order/purchase
+	 * @response -default ~order/purchase/responses.json##200
+	 */
+	function purchase( event, rc, prc ) {
+		
 	}
 
 
