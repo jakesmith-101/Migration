@@ -8,20 +8,39 @@ import (
 	"os"
 )
 
+coldboxPort := 8080
+nodePort := 8888
+proxyPort := 3333
+
 func getRoot(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("got / request\n")
-	io.WriteString(w, "This is my website!\n")
+	io.WriteString(w, "This is the proxy!\n")
 }
-func getHello(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /hello request\n")
+func getorders(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("got /order request\n")
+	io.WriteString(w, "Hello, HTTP!\n")
+}
+func createorder(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("got /order request\n")
+	io.WriteString(w, "Hello, HTTP!\n")
+}
+func deleteorder(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("got /order request\n")
+	io.WriteString(w, "Hello, HTTP!\n")
+}
+func purchaseorder(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("got /order request\n")
 	io.WriteString(w, "Hello, HTTP!\n")
 }
 
 func main() {
 	http.HandleFunc("/", getRoot)
-	http.HandleFunc("/hello", getHello)
+	http.HandleFunc("/order", getorders)
+	http.HandleFunc("/order/create", createorder)
+	http.HandleFunc("/order/delete", deleteorder)
+	http.HandleFunc("/order/purchase", purchaseorder)
 
-	err := http.ListenAndServe(":3333", nil)
+	err := http.ListenAndServe(fmt.Sprintf("%s%s", ":", proxyPort), nil)
 	if errors.Is(err, http.ErrServerClosed) {
 		fmt.Printf("server closed\n")
 	} else if err != nil {
