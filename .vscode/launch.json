@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "Launch: Docker Container",
-            "command": "docker run -it --rm --name proxy -p 3333:3333 go122",
+            "command": "docker run -it --rm --name node -p 8888:8888 node16",
             "request": "launch",
             "preLaunchTask": "Build: Docker Image",
             "type": "node-terminal"

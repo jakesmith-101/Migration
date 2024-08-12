@@ -4,7 +4,7 @@
         {
             "label": "Build: Docker Image",
             "type": "shell",
-            "command": "docker build -t go122 .",
+            "command": "docker build -t node16 .",
             "group": "build",
             "presentation": {
                 "reveal": "silent"
