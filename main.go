@@ -18,19 +18,23 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 }
 func getorders(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("got /order request\n")
-	io.WriteString(w, "Hello, HTTP!\n")
+	http.Request()
+
 }
 func createorder(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("got /order/create request\n")
-	io.WriteString(w, "Hello, HTTP!\n")
+	http.Request()
+
 }
 func deleteorder(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("got /order/delete request\n")
-	io.WriteString(w, "Hello, HTTP!\n")
+	http.Request()
+
 }
 func purchaseorder(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("got /order/purchase request\n")
-	io.WriteString(w, "Hello, HTTP!\n")
+	http.Request()
+
 }
 
 func main() {
