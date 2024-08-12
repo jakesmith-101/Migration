@@ -1,14 +1,15 @@
-# syntax=docker/dockerfile:1
+#build stage
+FROM golang:alpine AS builder
+RUN apk add --no-cache git
+WORKDIR /go/src/app
+COPY . .
+RUN go get -d -v ./...
+RUN go build -o /go/bin/app -v ./...
 
-FROM golang:1.22
-
-COPY go.mod ./
-RUN go mod download
-
-COPY *.go ./
-
-RUN go build -o /proxy
-
+#final stage
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+COPY --from=builder /go/bin/app /app
+ENTRYPOINT /app
+LABEL Name=migrationproxy Version=0.0.1
 EXPOSE 3333
-
-CMD [ "/proxy" ]
