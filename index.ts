@@ -3,8 +3,20 @@ import express from 'express';
 const app = express()
 const port = 8888
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
+app.get('/order/', (req, res) => {
+    res.send("Welcome to my orders.")
+})
+
+app.get('/order/create', (req, res) => {
+
+})
+
+app.get('/order/delete', (req, res) => {
+
+})
+
+app.get('/order/purchase', (req, res) => {
+
 })
 
 app.listen(port, () => {
