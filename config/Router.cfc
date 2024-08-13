@@ -6,46 +6,19 @@
 component {
 
 	function configure(){
-		/**
-		 * --------------------------------------------------------------------------
-		 * Router Configuration Directives
-		 * --------------------------------------------------------------------------
-		 * https://coldbox.ortusbooks.com/the-basics/routing/application-router#configuration-methods
-		 */
-		setFullRewrites( true );
+        setFullRewrites( true );
 
-		/**
-		 * --------------------------------------------------------------------------
-		 * App Routes
-		 * --------------------------------------------------------------------------
-		 * Here is where you can register the routes for your web application!
-		 * Go get Funky!
-		 */
+        // User Resource
+        route( "/api/order/:orderID" )
+            .withAction( {
+                GET    = 'view',
+                POST   = 'save',
+                PUT    = 'save',
+                DELETE = 'remove'
+            } )
+            .toHandler( "api.order" );
 
-		// A nice healthcheck route example
-		route( "/healthcheck", function( event, rc, prc ){
-			return "Ok!";
-		} );
-
-		// API Echo
-		get( "/api/echo", "Echo.index" );
-
-		// API Authentication Routes
-		post( "/api/login", "Auth.login" );
-		post( "/api/logout", "Auth.logout" );
-		post( "/api/register", "Auth.register" );
-
-		// API Secured Routes
-		get( "/api/whoami", "Echo.whoami" );
-
-		// API Order Routes
-		get( "/api/order", "api.order.index" );
-		get( "/api/order/view", "api.order.view" );
-		post( "/api/order/save", "api.order.save" );
-		delete( "/api/order/remove", "api.order.remove" );
-
-		// Conventions-Based Routing
-		route( ":handler/:action?" ).end();
+        route( ":handler/:action?" ).end();
 	}
 
 }
