@@ -88,19 +88,15 @@ app.param('orderID', function (req, res, next, id) {
     }
 });
 
-app.map({
-    '/api/order': {
-        get: order.index, // order list
-        post: order.save, // create order
-        put: order.save, // create order
-        '/:orderID': {
-            get: order.view, // view order
-            post: order.save, // edit order
-            put: order.save, // edit order
-            delete: order.remove // delete order
-        }
-    }
-});
+app.route('/api/order')
+    .get(order.index) // order list
+    .post(order.save) // create order
+    .put(order.save); // create order
+app.route('/api/order/:orderID')
+    .get(order.view) // view order
+    .post(order.save) // edit order
+    .put(order.save) // edit order
+    .delete(order.remove); // delete order
 
 // listen for requests
 app.listen(port, () => {

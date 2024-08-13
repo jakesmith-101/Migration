@@ -9,6 +9,29 @@
             "presentation": {
                 "reveal": "silent"
             }
+        },
+        {
+            "label": "Build: tsc",
+            "type": "shell",
+            "command": "tsc --watch",
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "Build: all",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "Build: Docker Image",
+                "Build: tsc"
+            ],
+            "presentation": {
+                "reveal": "silent"
+            }
         }
     ]
 }

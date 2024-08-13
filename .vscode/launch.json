@@ -8,7 +8,7 @@
             "name": "Launch: Docker Container",
             "command": "docker run -it --rm --name node -p 8888:8888 node16",
             "request": "launch",
-            "preLaunchTask": "Build: Docker Image",
+            "preLaunchTask": "Build: all",
             "type": "node-terminal"
         }
     ]
