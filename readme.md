@@ -1,5 +1,8 @@
 # RESTful api migration example
 
+Each branch is supposed to be ran simultaneously to show how Migration through strangle pattern works.<br />
+How the proxy delegates requests to legacy/new depending on if those endpoints exist on new, or new cannot handle specfic requests. etc
+
 ## Coldbox (ColdFusion)
 
 Ports:
