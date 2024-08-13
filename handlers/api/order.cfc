@@ -12,6 +12,8 @@ component extends="coldbox.system.EventHandler"{
 	this.aroundHandler_except = "";
 	this.allowedMethods = {};
 
+	property name="orderService" inject="OrderService";
+
 	/**
 	 * Display a listing of orders
 	 */
