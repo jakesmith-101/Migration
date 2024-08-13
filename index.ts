@@ -9,37 +9,44 @@ const port = 8888
 // storing orders in memory isntead of DB as an example
 const orders = [];
 
-// get order list
-const index: tHandler = (req, res) => {
+const order: { [key: string]: tHandler } = {
+    // get order list
+    index: (req, res) => {
 
-    res.json();
+        res.json();
+    },
+
+    // view order
+    view: (req, res) => {
+
+        res.json();
+    },
+
+    // create or update order
+    save: (req, res) => {
+        req
+
+        res.json();
+    },
+
+    // delete order
+    remove: (req, res) => {
+
+        res.json();
+    }
 }
 
-// view order
-const view: tHandler = (req, res) => {
-
-    res.json();
-}
-
-// create or update order
-const save: tHandler = (req, res) => {
-
-    res.json();
-}
-
-// delete order
-const remove: tHandler = (req, res) => {
-
-    res.json();
-}
-
-
-app.get('/api/order/', index);
-app.route('/api/order/:orderID')
-    .get(view)
-    .post(save)
-    .put(save)
-    .delete(remove);
+app.map({
+    '/api/order': {
+        get: order.index,
+        '/:orderID': {
+            get: order.view,
+            post: order.save,
+            put: order.save,
+            delete: order.remove
+        }
+    }
+});
 
 // listen for requests
 app.listen(port, () => {
