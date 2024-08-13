@@ -4,3 +4,4 @@ with vscode just run and debug<br />
 Requires:
 - vscode
 - docker
+- node/npm
