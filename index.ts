@@ -1,5 +1,6 @@
 import express, { RequestHandler } from 'express';
 import createHttpError from 'http-errors';
+import { v4 } from 'uuid';
 import QueryString from 'qs';
 
 type tHandler<T> = RequestHandler<T, any, any, QueryString.ParsedQs, Record<string, any>>;
@@ -13,8 +14,10 @@ const orders: { id: string, items: string[] }[] = [];
 const order: { [key: string]: tHandler<{ orderID?: string }> } = {
     // get order list
     index: (req, res) => {
-
-        res.json();
+        if (orders !== undefined)
+            res.json(orders);
+        else
+            res.status(404).json(null);
     },
 
     // view order
@@ -28,8 +31,14 @@ const order: { [key: string]: tHandler<{ orderID?: string }> } = {
 
     // create or update order
     save: (req, res) => {
+        const orderBody = JSON.parse(req.body);
+        if (req.params.orderID !== undefined) {
+            const orderIndex = orders.findIndex(o => o.id === req.params.orderID);
 
-        res.json();
+        } else {
+            const id = v4();
+        }
+        res.status(400).json(false);
     },
 
     // delete order
