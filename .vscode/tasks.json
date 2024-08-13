@@ -6,6 +6,9 @@
             "type": "shell",
             "command": "docker build -t node16 .",
             "group": "build",
+            "dependsOn": [
+                "Build: tsc"
+            ],
             "presentation": {
                 "reveal": "silent"
             }
@@ -26,8 +29,7 @@
                 "isDefault": true
             },
             "dependsOn": [
-                "Build: Docker Image",
-                "Build: tsc"
+                "Build: Docker Image"
             ],
             "presentation": {
                 "reveal": "silent"
