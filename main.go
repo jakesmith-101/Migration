@@ -8,10 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-coldboxPort := 8080
-nodePort := 8888
-proxyPort := 3333
-host := "http://localhost:" // append corresponding port
+var coldboxPort = 8080
+var nodePort = 8888
+var proxyPort = 3333
+var host = "http://localhost:" // append corresponding port
 
 func ping(context *gin.Context) {
 	context.JSON(200, gin.H{
