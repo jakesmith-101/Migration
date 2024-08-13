@@ -9,7 +9,11 @@ const app = express()
 const port = 8888
 
 // storing orders in memory isntead of DB as an example
-const orders: { id: string, items: string[] }[] = [];
+const orders: { id: string, items: string[] }[] = [
+    { id: "1", items: ["coldbox"] },
+    { id: "2", items: ["superman"] },
+    { id: "3", items: ["batman"] }
+];
 
 const order: { [key: string]: tHandler<{ orderID?: string }> } = {
     // get order list
@@ -41,8 +45,7 @@ const order: { [key: string]: tHandler<{ orderID?: string }> } = {
 
     // create or update order
     save: (req, res) => {
-        const orderBody = JSON.parse(req.body);
-        const items = orderBody?.items ?? [];
+        const items = req.body?.items ?? [];
         if (req.params.orderID !== undefined) {
             const orderIndex = orders.findIndex(o => o.id === req.params.orderID);
             if (orderIndex !== -1) {
@@ -78,6 +81,7 @@ const order: { [key: string]: tHandler<{ orderID?: string }> } = {
         res.status(400).json(false); // unuseful error
     }
 }
+app.use(express.json());
 
 app.param('orderID', function (req, res, next, id) {
     req.params['orderID'] = id;
