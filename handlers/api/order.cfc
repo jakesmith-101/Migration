@@ -32,7 +32,7 @@ component extends="coldbox.system.EventHandler"{
 	 * save an order
 	 */
 	function save( event, rc, prc ){
-		prc.order = orderService.saveOrder( rc.order );
+		prc.order = orderService.updateOrder( rc.order );
 		event.renderData( type="json", data=prc.order, statusCode=201, statusMessage="We have saved your order" );
 	}
 

@@ -1,15 +1,20 @@
 /**
  * I am a new service
  */
-component singleton {
+component singleton accessors="true"{
 
-	// DI
+	// Properties
+	property name="data" type="array";
 
 	/**
 	 * Constructor
 	 */
-	OrderService function init(){
-		
+	ContactService function init(){
+	  variables.data = [
+            { "id"=1, "items"=["coldbox"] },
+            { "id"=2, "items"=["superman"] },
+            { "id"=3, "items"=["batman"] }
+          ];
 		return this;
 	}
 
@@ -17,7 +22,7 @@ component singleton {
 	 * getOrders
 	 */
 	function getOrders(){
-
+		return variables.data;
 	}
 
 	/**
@@ -28,9 +33,9 @@ component singleton {
 	}
 
 	/**
-	 * saveOrder
+	 * updateOrder
 	 */
-	function saveOrder(){
+	function updateOrder(){
 
 	}
 
