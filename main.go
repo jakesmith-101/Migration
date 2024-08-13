@@ -40,17 +40,11 @@ func purchaseorder(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", getRoot)
-	http.HandleFunc("/order", getorders)
-	http.HandleFunc("/order/create", createorder)
-	http.HandleFunc("/order/delete", deleteorder)
-	http.HandleFunc("/order/purchase", purchaseorder)
-
-	err := http.ListenAndServe(fmt.Sprintf("%s%s", ":", proxyPort), nil)
-	if errors.Is(err, http.ErrServerClosed) {
-		fmt.Printf("server closed\n")
-	} else if err != nil {
-		fmt.Printf("error starting server: %s\n", err)
-		os.Exit(1)
-	}
-}
+	r := gin.Default()
+	r.GET("/ping", func(c *gin.Context) {
+	  c.JSON(http.StatusOK, gin.H{
+		"message": "pong",
+	  })
+	})
+	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+  }
