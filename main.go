@@ -28,6 +28,7 @@ func relay(context *gin.Context, path string, port int, method string) {
 	var newData data
     // Call BindJSON to bind the received JSON to newData.
     if err := c.BindJSON(&newData); err != nil {
+		http.Error(w, "Bind JSON Failed.", http.StatusBadRequest)
         return
     }
 
