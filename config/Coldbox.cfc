@@ -16,14 +16,14 @@
 		 */
 		coldbox = {
 			// Application Setup
-			appName                  : getSystemSetting( "APPNAME", "Your app name here" ),
+			appName                  : getSystemSetting( "APPNAME", "api" ),
 			eventName                : "event",
 			// Development Settings
 			reinitPassword           : "",
 			reinitKey                : "fwreinit",
 			handlersIndexAutoReload  : true,
 			// Implicit Events
-			defaultEvent             : "Echo.index",
+			defaultEvent             : "order.index",
 			requestStartHandler      : "Main.onRequestStart",
 			requestEndHandler        : "",
 			applicationStartHandler  : "Main.onAppInit",
@@ -42,7 +42,7 @@
 			controllerDecorator      : "",
 			// Error/Exception Handling
 			invalidHTTPMethodHandler : "",
-			exceptionHandler         : "Echo.onError",
+			exceptionHandler         : "order.onError",
 			invalidEventHandler      : "",
 			customErrorTemplate      : "",
 			// Application Aspects
