@@ -11,10 +11,23 @@ nodePort := 8888
 proxyPort := 3333
 host := "http://localhost:" // append corresponding port
 
-func ping(c *gin.Context) {
-	c.JSON(200, gin.H{
+func ping(context *gin.Context) {
+	context.JSON(200, gin.H{
 		"message": "pong",
 	})
+}
+
+type data struct {
+    orderID    string     `json:"orderID,omitempty"`
+    items    []string     `json:"items"`
+}
+
+func relay(context *gin.Context) {
+	var newData data
+    // Call BindJSON to bind the received JSON to newData.
+    if err := c.BindJSON(&newData); err != nil {
+        return
+    }
 }
 
 func setupRouter() *gin.Engine {
