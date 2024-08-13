@@ -23,7 +23,7 @@
 			reinitKey                : "fwreinit",
 			handlersIndexAutoReload  : true,
 			// Implicit Events
-			defaultEvent             : "order.index",
+			defaultEvent             : "api.order.index",
 			requestStartHandler      : "Main.onRequestStart",
 			requestEndHandler        : "",
 			applicationStartHandler  : "Main.onAppInit",
@@ -42,7 +42,7 @@
 			controllerDecorator      : "",
 			// Error/Exception Handling
 			invalidHTTPMethodHandler : "",
-			exceptionHandler         : "order.onError",
+			exceptionHandler         : "api.order.onError",
 			invalidEventHandler      : "",
 			customErrorTemplate      : "",
 			// Application Aspects

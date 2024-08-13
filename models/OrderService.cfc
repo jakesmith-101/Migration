@@ -9,7 +9,7 @@ component singleton accessors="true" {
 	/**
 	 * Constructor
 	 */
-	ContactService function init( ) {
+	OrderService function init( ) {
 	  variables.data = [
             { "id"=1, "items"=[ "coldbox" ] },
             { "id"=2, "items"=[ "superman" ] },
