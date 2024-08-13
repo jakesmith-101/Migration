@@ -31,7 +31,7 @@ component extends="coldbox.system.RestHandler"{
 	 * save an order
 	 */
 	function save( event, rc, prc ){
-		return orderService.updateOrder( rc.order );
+		return orderService.updateOrder( rc.items, rc.orderID );
 	}
 
 	/**

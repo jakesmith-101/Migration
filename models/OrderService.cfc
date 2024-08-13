@@ -45,19 +45,22 @@ component singleton accessors="true" {
 	 *
 	 * broken append, as it does not possibly overwrite previous record
 	 */
-	function updateOrder( required orderID ) {
+	function updateOrder( required items, orderID ) {
 		arrayIndex = ArrayFind(variables.data, function(s){ 
 			return s.id == orderID; 
 		});
 
 		if ( arrayIndex != 0 ) {
-			variables.data[ arrayIndex ] = rc.order;
+			variables.data[ arrayIndex ] = {
+				"id": orderID,
+				"items": items
+			};
 			return variables.data[ arrayIndex ].id; /* old success */
 		} else {
 			newID = createUUID();
 			variables.data.append( {
 				"id": newID,
-				"items": rc.order.items
+				"items": items
 			} );
 			return newID; /* new success */
 		}
