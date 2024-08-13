@@ -10,7 +10,12 @@ component extends="coldbox.system.EventHandler"{
 	this.posthandler_except = "";
 	this.aroundHandler_only = "";
 	this.aroundHandler_except = "";
-	this.allowedMethods = {};
+	this.allowedMethods = {
+		"index"  : "GET",
+		"view"   : "GET",
+		"save"   : "POST,PUT,PATCH",
+		"remove" : "DELETE"
+	};
 
 	property name="orderService" inject="OrderService";
 
