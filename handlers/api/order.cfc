@@ -13,7 +13,7 @@ component extends="coldbox.system.EventHandler"{
 	this.allowedMethods = {};
 
 	/**
-	 * Display a listing of the resource
+	 * Display a listing of orders
 	 */
 	function index( event, rc, prc ){
 		prc.orders = orderService.getOrders();
@@ -21,7 +21,7 @@ component extends="coldbox.system.EventHandler"{
 	}
 
 	/**
-	 * view
+	 * view an order
 	 */
 	function view( event, rc, prc ){
 		prc.order = orderService.retrieveOrderById( rc.id );
@@ -29,18 +29,18 @@ component extends="coldbox.system.EventHandler"{
 	}
 
 	/**
-	 * save
+	 * save an order
 	 */
 	function save( event, rc, prc ){
-		prc.order = orderService.save( rc );
+		prc.order = orderService.saveOrder( rc.order );
 		event.renderData( type="json", data=prc.order, statusCode=201, statusMessage="We have saved your order" );
 	}
 
 	/**
-	 * remove
+	 * remove an order
 	 */
 	function remove( event, rc, prc ){
-		prc.order = orderService.remove( rc.id );
+		prc.order = orderService.removeOrder( rc.id );
 		event.renderData( type="json", data=prc.order, statusCode=201, statusMessage="We have deleted your order"  );
 	}
 
