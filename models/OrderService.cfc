@@ -34,7 +34,7 @@ component singleton accessors="true" {
 		} );
 
 		if ( arrI != 0 ) {
-			return variables.data[ arrI ]
+			return variables.data[ arrI ];
 		}
 	}
 
