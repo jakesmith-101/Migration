@@ -1,11 +1,8 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"io"
 	"net/http"
-	"os"
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,37 +11,29 @@ nodePort := 8888
 proxyPort := 3333
 host := "http://localhost:" // append corresponding port
 
-func getRoot(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got / request\n")
-	io.WriteString(w, "This is the proxy!\n")
-}
-func getorders(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /order request\n")
-	http.Request()
+func setupRouter() *gin.Engine {
+	// Disable Console Color
+	// gin.DisableConsoleColor()
+	router := gin.Default()
 
-}
-func createorder(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /order/create request\n")
-	http.Request()
+	// Ping test
+	router.GET("/api/ping", func(c *gin.Context) {
+		c.String(http.StatusOK, "pong")
+	})
 
-}
-func deleteorder(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /order/delete request\n")
-	http.Request()
+	router.GET("/api/order", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
 
+	return router
 }
-func purchaseorder(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /order/purchase request\n")
-	http.Request()
 
-}
+
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-	  c.JSON(http.StatusOK, gin.H{
-		"message": "pong",
-	  })
-	})
-	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
-  }
+	router := setupRouter()
+	// Listen and Server in 0.0.0.0:3333 or localhost:3333
+	router.Run(fmt.Sprintf("%s%s", ":", proxyPort))
+}
