@@ -7,30 +7,36 @@ const port = 8888
 const orders = [];
 
 // get order list
-app.get('/api/order/', (req, res) => {
-
-    res.json();
-})
-
-// create or update order
-function saveOrder(req, res) {
+function index(req, res) {
 
     res.json();
 }
-app.post('/api/order/:orderID', saveOrder)
-app.put('/api/order/:orderID', saveOrder)
 
 // view order
-app.get('/api/order/:orderID', (req, res) => {
+function view(req, res) {
 
     res.json();
-})
+}
+
+// create or update order
+function save(req, res) {
+
+    res.json();
+}
 
 // delete order
-app.delete('/api/order/:orderID', (req, res) => {
+function remove(req, res) {
 
     res.json();
-})
+}
+
+
+app.get('/api/order/', index);
+app.route('/api/order/:orderID')
+    .get(view)
+    .post(save)
+    .put(save)
+    .delete(remove);
 
 // listen for requests
 app.listen(port, () => {
