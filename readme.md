@@ -1,9 +1,14 @@
-# REST API built by Coldbox
+# RESTful api migration example
+## coldbox(coldfusion) and express(node)
 
-- port 8443 exists
+coldbox ports:
+- 8080(api)
+- 8443(unused)
 
-## docker command to run the code, obviously replace 'WORKING_DIRECTORY'
-`docker run --name coldbox -p 8080:8080 -v "WORKING_DIRECTORY:/app" ortussolutions/commandbox`
+express ports:
+- 8888
 
-### make api requests to (replace orderid with nothing for all orders, or an actual id)
-- localhost:8080/api/order/ORDERID
+## Proxy (golang)
+
+proxy ports:
+- 3333
