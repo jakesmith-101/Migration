@@ -4,7 +4,7 @@ const app = express()
 const port = 8888
 
 // get order list
-app.get('/order/', (req, res) => {
+app.get('/api/order/', (req, res) => {
     res.send("Welcome to my orders.")
 })
 
@@ -12,16 +12,16 @@ app.get('/order/', (req, res) => {
 function saveOrder(req, res) {
 
 }
-app.post('/order/:orderID', saveOrder)
-app.put('/order/:orderID', saveOrder)
+app.post('/api/order/:orderID', saveOrder)
+app.put('/api/order/:orderID', saveOrder)
 
 // view order
-app.get('/order/:orderID', (req, res) => {
+app.get('/api/order/:orderID', (req, res) => {
 
 })
 
 // delete order
-app.delete('/order/:orderID', (req, res) => {
+app.delete('/api/order/:orderID', (req, res) => {
 
 })
 
