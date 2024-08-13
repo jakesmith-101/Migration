@@ -8,7 +8,7 @@ component {
 	function configure(){
         setFullRewrites( true );
 
-        // User Resource
+        // Order Resource
         route( "/api/order/:orderID" )
             .withAction( {
                 GET    = 'view',
