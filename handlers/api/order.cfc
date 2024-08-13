@@ -17,31 +17,31 @@ component extends="coldbox.system.EventHandler"{
 	 */
 	function index( event, rc, prc ){
 		prc.orders = orderService.getOrders();
-		event.renderData( data=prc.orders, formats="json" );
+		event.renderData( type="json", data=prc.orders );
 	}
 
 	/**
 	 * view
 	 */
 	function view( event, rc, prc ){
-		prc.order = orderService.getOrder( rc.id );
-		event.renderData( data=prc.order, formats="json" );
+		prc.order = orderService.retrieveOrderById( rc.id );
+		event.renderData( type="json", data=prc.order );
 	}
 
 	/**
 	 * save
 	 */
 	function save( event, rc, prc ){
-		prc.order = orderService.setOrder( rc.id );
-		event.renderData( data=prc.order, formats="json" );
+		prc.order = orderService.save( rc );
+		event.renderData( type="json", data=prc.order, statusCode=201, statusMessage="We have saved your order" );
 	}
 
 	/**
 	 * remove
 	 */
 	function remove( event, rc, prc ){
-		prc.order = orderService.deleteOrder( rc.id );
-		event.renderData( data=prc.order, formats="json" );
+		prc.order = orderService.remove( rc.id );
+		event.renderData( type="json", data=prc.order, statusCode=201, statusMessage="We have deleted your order"  );
 	}
 
 
