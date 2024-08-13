@@ -35,6 +35,8 @@ component singleton accessors="true" {
 
 		if ( arrI != 0 ) {
 			return variables.data[ arrI ];
+		} else {
+			return "NO";
 		}
 	}
 
