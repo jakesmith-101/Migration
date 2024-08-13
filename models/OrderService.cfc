@@ -29,15 +29,17 @@ component singleton accessors="true" {
 	 * retrieveOrderById
 	 */
 	function retrieveOrderById( required orderID ) {
-		arrI = ArrayFindNoCase( variables.data, function( testOrder ) {
-			if( testOrder.id == orderID ) return true; return false;
-		} );
+		arrayIndex = ArrayFind(variables.data, function(s){ 
+			return s.id == orderID; 
+		});
 
-		if ( arrI != 0 ) {
-			return variables.data[ arrI ];
+		if ( arrayIndex != 0 ) {
+			return variables.data[ arrayIndex ];
 		} else {
-			return "NO";
+			return arrayIndex;
 		}
+
+		return "NO";
 	}
 
 	/**
@@ -46,12 +48,12 @@ component singleton accessors="true" {
 	 * broken append, as it does not possibly overwrite previous record
 	 */
 	function updateOrder( required order ) {
-		arrI = ArrayFindNoCase( variables.data, function( testOrder ) {
-			if( testOrder.id == orderID ) return true; return false;
-		} );
+		arrayIndex = ArrayFind(variables.data, function(s){ 
+			return s.id == orderID; 
+		});
 
-		if ( arrI != 0 ) {
-			variables.data[ arrI ] = order;
+		if ( arrayIndex != 0 ) {
+			variables.data[ arrayIndex ] = order;
 			return "YES"; /* success */
 		} else {
 			variables.data.append( order );
@@ -65,12 +67,12 @@ component singleton accessors="true" {
 	 * removeOrder
 	 */
 	function removeOrder( required orderID ) {
-		arrI = ArrayFindNoCase( variables.data, function( testOrder ) {
-			if( testOrder.id == orderID ) return true; return false;
-		} );
+		arrayIndex = ArrayFind(variables.data, function(s){ 
+			return s.id == orderID; 
+		});
 
-		if ( arrI != 0 ) {
-			return ArrayDeleteAt( variables.data, arrI );
+		if ( arrayIndex != 0 ) {
+			return ArrayDeleteAt( variables.data, arrayIndex );
 		}
 		return "NO";
 	}
