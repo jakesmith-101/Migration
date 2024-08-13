@@ -39,6 +39,15 @@ component {
 		get( "/api/whoami", "Echo.whoami" );
 
 		// @app_routes@
+		// Order Resource
+        route( "/api/order/:orderID" )
+            .withAction( {
+                GET    = 'view',
+                POST   = 'purchase',
+                PUT    = 'save',
+                DELETE = 'remove'
+            } )
+            .toHandler( "api.order" );
 
 		// Conventions-Based Routing
 		route( ":handler/:action?" ).end();
