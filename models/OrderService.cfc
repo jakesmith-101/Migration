@@ -50,11 +50,13 @@ component singleton accessors="true" {
 
 		if ( arrI != 0 ) {
 			variables.data[ arrI ] = order;
-			return order; /* success */
+			return "YES"; /* success */
 		} else {
 			variables.data.append( order );
-			return order; /* success */
+			return "YES"; /* success */
 		}
+
+		return "NO";
 	}
 
 	/**

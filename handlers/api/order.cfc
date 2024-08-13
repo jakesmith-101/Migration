@@ -39,16 +39,16 @@ component extends="coldbox.system.EventHandler"{
 	 * save an order
 	 */
 	function save( event, rc, prc ){
-		prc.order = orderService.updateOrder( rc.order );
-		event.getResponse().setData( prc.order );
+		prc.saved = orderService.updateOrder( rc.order );
+		event.getResponse().setData( prc.saved );
 	}
 
 	/**
 	 * remove an order
 	 */
 	function remove( event, rc, prc ){
-		prc.order = orderService.removeOrder( rc.id );
-		event.getResponse().setData( prc.order );
+		prc.deleted = orderService.removeOrder( rc.id );
+		event.getResponse().setData( prc.deleted );
 	}
 
 
