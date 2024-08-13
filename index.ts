@@ -1,4 +1,7 @@
-import express from 'express';
+import express, { RequestHandler } from 'express';
+import QueryString from 'qs';
+
+type tHandler = RequestHandler<{}, any, any, QueryString.ParsedQs, Record<string, any>>;
 
 const app = express()
 const port = 8888
@@ -7,25 +10,25 @@ const port = 8888
 const orders = [];
 
 // get order list
-function index(req, res) {
+const index: tHandler = (req, res) => {
 
     res.json();
 }
 
 // view order
-function view(req, res) {
+const view: tHandler = (req, res) => {
 
     res.json();
 }
 
 // create or update order
-function save(req, res) {
+const save: tHandler = (req, res) => {
 
     res.json();
 }
 
 // delete order
-function remove(req, res) {
+const remove: tHandler = (req, res) => {
 
     res.json();
 }
