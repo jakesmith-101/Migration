@@ -25,7 +25,7 @@ type data struct {
     items    []string     `json:"items"`
 }
 
-func relay(context *gin.Context, path string, port int, method string) {
+func relay(context *gin.Context, path string, port string, method string) {
 	var newData data
     // Call BindJSON to bind the received JSON to newData.
     if err := context.BindJSON(&newData); err != nil {
