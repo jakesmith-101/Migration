@@ -10,14 +10,14 @@
                 "reveal": "silent"
             }
         },
-        {
-            "label": "Build: tsc",
-            "type": "shell",
-            "command": "tsc --watch",
+        { // For build
+            "type": "typescript",
+            "tsconfig": "tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": "build",
-            "presentation": {
-                "reveal": "silent"
-            }
+            "label": "Build: tsc"
         },
         {
             "label": "Build: all",
