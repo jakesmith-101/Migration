@@ -43,7 +43,7 @@ component {
         route( "/api/order/:orderID" )
             .withAction( {
                 GET    = 'view',
-                POST   = 'purchase',
+                POST   = 'save',
                 PUT    = 'save',
                 DELETE = 'remove'
             } )

@@ -66,13 +66,6 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 				expect( false ).toBeTrue();
 			});
 
-			it( "purchase", function(){
-                // Execute event or route via GET http method. Spice up accordingly
-				var event = get( "api.order.purchase" );
-				// expectations go here.
-				expect( false ).toBeTrue();
-			});
-
 
 		});
 
