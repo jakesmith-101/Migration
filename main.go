@@ -6,11 +6,13 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"github.com/gin-gonic/gin"
 )
 
 coldboxPort := 8080
 nodePort := 8888
 proxyPort := 3333
+host := "http://localhost:" // append corresponding port
 
 func getRoot(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("got / request\n")
