@@ -7,4 +7,4 @@ COPY . .
 EXPOSE 8888
 RUN chown -R node /usr/src/app
 USER node
-CMD ["node", "index.ts"]
+CMD ["node", "build/index.js"]
