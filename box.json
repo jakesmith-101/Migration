@@ -1,9 +1,9 @@
 {
-    "name":"CFBE",
+    "name":"api",
     "version":"1.0.0",
     "location":"forgeboxStorage",
     "author":"You",
-    "slug":"cfbe",
+    "slug":"api",
     "createPackageDirectory":false,
     "type":"mvc",
     "homepage":"https://github.com/coldbox-templates/rest",

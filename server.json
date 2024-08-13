@@ -1,5 +1,5 @@
 {
-    "name":"CFBE",
+    "name":"api",
     "web":{
         "rewrites":{
             "enable":true

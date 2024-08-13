@@ -80,8 +80,8 @@ PLEASE NOTE THAT YOU MUST ALTER THE RUNNER'S URL ACCORDING TO YOUR ENVIRONMENT.
 		
 		<!-- Read Result Properties -->
         <property file="${report.dir}/TEST.properties"/>
-        <!-- Order them out -->
-        <orderproperties regex="^(test|total).*"/>
+        <!-- Echo them out -->
+        <echoproperties regex="^(test|total).*"/>
         <!-- Fail build if they failed -->
         <fail if="test.failed"/>
 	</target>
@@ -128,8 +128,8 @@ PLEASE NOTE THAT YOU MUST ALTER THE RUNNER'S URL ACCORDING TO YOUR ENVIRONMENT.
 		
         <!-- Read Result Properties -->
         <property file="${report.dir}/TEST.properties"/>
-        <!-- Order them out -->
-        <orderproperties regex="^(test|total).*"/>
+        <!-- Echo them out -->
+        <echoproperties regex="^(test|total).*"/>
         <!-- Fail build if they failed -->
         <fail if="test.failed"/>
 	</target>

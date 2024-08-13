@@ -27,8 +27,8 @@ component {
 			return "Ok!";
 		} );
 
-		// API Order
-		get( "/api/order", "Order.index" );
+		// API Echo
+		get( "/api/echo", "Echo.index" );
 
 		// API Authentication Routes
 		post( "/api/login", "Auth.login" );
@@ -36,7 +36,7 @@ component {
 		post( "/api/register", "Auth.register" );
 
 		// API Secured Routes
-		get( "/api/whoami", "Order.whoami" );
+		get( "/api/whoami", "Echo.whoami" );
 
 		// @app_routes@
 

@@ -11,7 +11,7 @@ component {
 	 * Application Properties: Modify as you see fit!
 	 * --------------------------------------------------------------------------
 	 */
-	this.name                 = "CFBE";
+	this.name                 = "My ColdBox Application";
 	this.sessionManagement    = true;
 	this.sessionTimeout       = createTimespan( 0, 1, 0, 0 );
 	this.setClientCookies     = true;
