@@ -38,16 +38,11 @@ component {
 		// API Secured Routes
 		get( "/api/whoami", "Echo.whoami" );
 
-		// @app_routes@
-		// Order Resource
-        route( "/api/order/:orderID" )
-            .withAction( {
-                GET    = 'view',
-                POST   = 'save',
-                PUT    = 'save',
-                DELETE = 'remove'
-            } )
-            .toHandler( "api.order" );
+		// API Order Routes
+		get( "api/order", "api.Order.index" );
+		get( "api/order/view", "api.Order.view" );
+		post( "api/order/save", "api.Order.save" );
+		delete( "api/order/remove", "api.Order.remove" );
 
 		// Conventions-Based Routing
 		route( ":handler/:action?" ).end();
