@@ -24,7 +24,7 @@ component extends="coldbox.system.EventHandler"{
 	 */
 	function index( event, rc, prc ){
 		prc.orders = orderService.getOrders();
-		event.getResponse().setData( type="json", data=prc.orders );
+		event.getResponse().setData( prc.orders );
 	}
 
 	/**
@@ -32,7 +32,7 @@ component extends="coldbox.system.EventHandler"{
 	 */
 	function view( event, rc, prc ){
 		prc.order = orderService.retrieveOrderById( rc.id );
-		event.getResponse().setData( type="json", data=prc.order );
+		event.getResponse().setData( prc.order );
 	}
 
 	/**
@@ -40,7 +40,7 @@ component extends="coldbox.system.EventHandler"{
 	 */
 	function save( event, rc, prc ){
 		prc.order = orderService.updateOrder( rc.order );
-		event.getResponse().setData( type="json", data=prc.order, statusCode=201, statusMessage="We have saved your order" );
+		event.getResponse().setData( prc.order );
 	}
 
 	/**
@@ -48,7 +48,7 @@ component extends="coldbox.system.EventHandler"{
 	 */
 	function remove( event, rc, prc ){
 		prc.order = orderService.removeOrder( rc.id );
-		event.getResponse().setData( type="json", data=prc.order, statusCode=201, statusMessage="We have deleted your order"  );
+		event.getResponse().setData( prc.order );
 	}
 
 
