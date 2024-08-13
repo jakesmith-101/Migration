@@ -27,5 +27,5 @@ app.delete('/api/order/:orderID', (req, res) => {
 
 // listen for requests
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Example RESTful api listening on port ${port}`)
 })
