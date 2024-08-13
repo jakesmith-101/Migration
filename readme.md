@@ -1,16 +1,17 @@
 # RESTful api migration example
-## coldbox(coldfusion)
+
+## Coldbox (ColdFusion)
 
 Ports:
 - 8080(api)
 - 8443(unused)
 
-## express(node)
+## Express (Node)
 
 Ports:
 - 8888
 
-## Proxy (golang)
+## Proxy (Golang)
 
 Ports:
 - 3333
