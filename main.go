@@ -11,21 +11,32 @@ nodePort := 8888
 proxyPort := 3333
 host := "http://localhost:" // append corresponding port
 
+func ping(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"message": "pong",
+	})
+}
+
 func setupRouter() *gin.Engine {
 	// Disable Console Color
 	// gin.DisableConsoleColor()
 	router := gin.Default()
 
 	// Ping test
-	router.GET("/api/ping", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
+	router.GET("/api/ping", ping)
 
-	router.GET("/api/order", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	// get all orders
+	router.GET("/api/order", ping)
+	// create an order
+	router.PUT("/api/order", ping)
+	router.POST("/api/order", ping)
+	// get an order
+	router.GET("/api/order/:orderID", ping)
+	// edit an order
+	router.PUT("/api/order/:orderID", ping)
+	router.POST("/api/order/:orderID", ping)
+	// delete an order
+	router.DELETE("/api/order/:orderID", ping)
 
 	return router
 }
