@@ -15,7 +15,7 @@ var host = "http://localhost:" // append corresponding port
 
 
 func main() {
-    remote, err := url.Parse(fmt.Sprintf("%s%s", host, nodePort))
+    remote, err := url.Parse(fmt.Sprintf("%s%s", host, coldboxPort))
     if err != nil {
         panic(err)
     }
@@ -28,7 +28,7 @@ func main() {
             p.ServeHTTP(w, r)
         }
     }
-        
+
     proxy := httputil.NewSingleHostReverseProxy(remote)
     http.HandleFunc("/", handler(proxy))
     err = http.ListenAndServe(fmt.Sprintf("%s%s", ":", proxyPort), nil)
