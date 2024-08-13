@@ -15,7 +15,7 @@ var host = "http://localhost:" // append corresponding port
 
 
 func main() {
-    remote, err := url.Parse(fmt.Sprintf("%s%s", host, coldboxPort))
+    remote, err := url.Parse(fmt.Sprintf("%s%s", host, "8443"))
     if err != nil {
         panic(err)
     }
