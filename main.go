@@ -29,7 +29,7 @@ func relay(context *gin.Context, path string, port int, method string) {
 	var newData data
     // Call BindJSON to bind the received JSON to newData.
     if err := context.BindJSON(&newData); err != nil {
-		c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Bind JSON Failed."})
+		context.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Bind JSON Failed."})
         return
     }
 
@@ -37,13 +37,13 @@ func relay(context *gin.Context, path string, port int, method string) {
 	newBody, err := json.Marshal(newData)
 	//return/log error
 	if err != nil {
-		c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Encode JSON Failed."})
+		context.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Encode JSON Failed."})
 		return
 	}
 	req, err := http.NewRequest(method, fmt.Sprintf("http://localhost:%s%s", port, path), bytes.NewBuffer(newBody))
 	//return/log error
 	if err != nil {
-		c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Request Creation Failed."})
+		context.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Request Creation Failed."})
 		return
 	}
 
@@ -51,7 +51,7 @@ func relay(context *gin.Context, path string, port int, method string) {
 	resp, err := http.DefaultClient.Do(req)
 	//return/log error
 	if err != nil {
-		c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Request Sent Failed."})
+		context.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Request Sent Failed."})
 		return
 	}
 	defer resp.Body.Close()
@@ -59,11 +59,11 @@ func relay(context *gin.Context, path string, port int, method string) {
 	b, err := io.ReadAll(resp.Body)
 	//return/log error
 	if err != nil {
-		c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Read Response Failed."})
+		context.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Read Response Failed."})
 		return
 	}
 
-	c.JSON(200, b)
+	context.JSON(200, b)
 }
 
 func setupRouter() *gin.Engine {
