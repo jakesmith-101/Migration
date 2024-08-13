@@ -39,10 +39,10 @@ component {
 		get( "/api/whoami", "Echo.whoami" );
 
 		// API Order Routes
-		get( "api/order", "api.Order.index" );
-		get( "api/order/view", "api.Order.view" );
-		post( "api/order/save", "api.Order.save" );
-		delete( "api/order/remove", "api.Order.remove" );
+		get( "api/order", "api.order.index" );
+		get( "api/order/view", "api.order.view" );
+		post( "api/order/save", "api.order.save" );
+		delete( "api/order/remove", "api.order.remove" );
 
 		// Conventions-Based Routing
 		route( ":handler/:action?" ).end();
