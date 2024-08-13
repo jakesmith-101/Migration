@@ -32,11 +32,15 @@ const order: { [key: string]: tHandler<{ orderID?: string }> } = {
     // create or update order
     save: (req, res) => {
         const orderBody = JSON.parse(req.body);
+        const items = orderBody?.items ?? [];
         if (req.params.orderID !== undefined) {
             const orderIndex = orders.findIndex(o => o.id === req.params.orderID);
-
+            orders[orderIndex] = { items, id: req.params.orderID };
+            res.json(req.params.orderID);
         } else {
             const id = v4();
+            orders.push({ id, items });
+            res.json(id);
         }
         res.status(400).json(false);
     },
