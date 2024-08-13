@@ -42,13 +42,17 @@ const order: { [key: string]: tHandler<{ orderID?: string }> } = {
             orders.push({ id, items });
             res.json(id);
         }
-        res.status(400).json(false);
+
+        res.status(400).json(false); // unuseful error
     },
 
     // delete order
     remove: (req, res) => {
+        const fOrder = orders.find(o => o.id === req.params.orderID);
+        if (fOrder !== undefined) {
 
-        res.json();
+        } else
+            res.status(404).json(null);
     }
 }
 
